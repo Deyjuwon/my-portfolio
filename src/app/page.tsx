@@ -1,103 +1,40 @@
 import Image from "next/image";
+import twitter from '../../public/twitter.svg';
+import instagram from '../../public/instagram.svg';
+import linkedin from '../../public/linkedin.svg';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-[#FFDBDB] h-dvh px-5 py-8 flex ">
+      <div  className="flex flex-col items-center w-[5%] justify-between">
+        <div className="flex flex-col gap-8 items-center">
+          <Image src={twitter} alt="icon" className="h-[15px] w-[15px]" />
+          <Image src={instagram} alt="icon" className="h-[20px] w-[20px]"  />
+          <Image src={linkedin} alt="icon" className="h-[20px] w-[20px]"  />
+          <div className="h-[150px] w-[1px] bg-[#1d1d1d] "></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="transform -rotate-90">
+          <p className="text-[#1d1d1d] text-[12px]">&copy; / 2025</p>
+        </div>
+        
+
+      </div>
+
+      <div className="flex flex-col justify-end w-[35%] pl-22 pb-16 font-montserrat text[#1d1d1d]">
+        <p className="font-bold text-[20px] pb-3">ADEJUWON OSHINDORO</p>
+        <p className="text-base pb-2">Creative developer / Mobile developer / <br />
+        AI lover.</p>
+        <p className="text-base">Currently working as a software enginner <br />
+        at Stark42 studio.</p>
+      </div>
+
+      <div className="w-[60%] font-bebas text-[#644A07] leading-[0.8] flex flex-col">
+        <p className="text-[200px] tracking-widest">INDEX</p>
+        <p className="text-[200px] tracking-widest">WORK</p>
+        <p className="text-[200px] tracking-widest">ABOUT</p>
+        <p className="text-[200px] tracking-widest">CONTACT</p>
+      </div>
+
     </div>
   );
 }
