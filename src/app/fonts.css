@@ -1,0 +1,9 @@
+/* styles/fonts.css */
+@font-face {
+    font-family: 'GrandSlang';
+    src: url('/public//fonts/GrandSlang-Roman.ttf') format('ttf'),
+         url('/fonts/YourFontFile.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
