@@ -1,81 +1,63 @@
-"use client";
+'use client'
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import twitter from '../../public/twitter.svg';
-import instagram from '../../public/instagram.svg';
-import linkedin from '../../public/linkedin.svg';
-import './fonts.css';
+import React, { useState } from 'react';
+import './marquee.css';
 
-export default function Home() {
-  const [isAnimating, setIsAnimating] = useState(true);
+const Home = () => {
+  const [darkMode, setDarkMode] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsAnimating(false);
-    }, 2000); // 2s animation
-    return () => clearTimeout(timer);
-  }, []);
+  const textColor = darkMode ? 'text-[#f7f7f7]' : 'text-[#1d1d1d]';
+  const bgColor = darkMode ? 'bg-[#1d1d1d]' : 'bg-[#f7f7f7]';
+  const toggleBg = darkMode ? 'bg-gray-700' : 'bg-gray-300';
+  const toggleCircle = darkMode ? 'translate-x-6' : 'translate-x-1';
 
   return (
-    <>
-      <AnimatePresence>
-        {isAnimating && (
-          <motion.div
-            initial={{ y: 0 }}
-            animate={{ y: "-100%" }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full h-full bg-black z-50"
-          />
-        )}
-      </AnimatePresence>
+    <div className={`relative h-screen px-20 py-10 overflow-hidden flex flex-col justify-between transition-colors duration-500 ${bgColor}`}>  
 
-      <div className="bg-[#FFDBDB] h-dvh px-5 py-8 flex overflow-hidden">
-        <div className="flex flex-col items-center w-[5%] justify-between ">
-          <div className="flex flex-col gap-8 items-center">
-            <Image src={twitter} alt="icon" className="h-[20px] w-[20px]" />
-            <Image src={instagram} alt="icon" className="h-[25px] w-[25px]" />
-            <Image src={linkedin} alt="icon" className="h-[25px] w-[25px]" />
-            <div className="h-[150px] w-[1px] bg-[#1d1d1d] "></div>
-          </div>
-          <div className="transform -rotate-90">
-            <p className="text-[#1d1d1d] text-[12px] font-montserrat font-semibold">
-              &copy; / 2025
-            </p>
-          </div>
+      <nav style={{ fontFamily: "GrandSlang" }} className={`font-semibold flex items-center justify-between ${textColor}`}>
+        <p>creative developer</p>
+        <div className='flex gap-10'>
+          <p>index</p>
+          <p>about</p>
+          <p>works</p>
+          <p>contact</p>
         </div>
-
-        <div className="flex flex-col justify-end w-[35%] pl-20 pb-16 font-montserrat text-[#232b2b]">
-          <p className="font-semibold text-[18px] pb-3">ADEJUWON OSHINDORO</p>
-          <p className="text-[14px] pb-2">
-            Creative Developer / Mobile Developer / <br />
-            AI Lover.
-          </p>
-          <p className="text-[14px]">
-            Currently Working as a Software Engineer <br />
-            at Stark42 Studio.
-          </p>
-        </div>
-
-        <div
-          className="w-[60%] text-[#644A07] leading-[0.9] flex flex-col gap-5 "
-          style={{ fontFamily: "GrandSlang" }}
+        <div className='flex items-center gap-5'>
+          <p>lagos, nigeria, 15:03pm</p>
+          <div 
+          className={` w-14 h-8 flex items-center rounded-full cursor-pointer ${toggleBg} transition-colors duration-300`}
+          onClick={() => setDarkMode(!darkMode)}
         >
-          {["INDEX", "WORK", "ABOUT", "CONTACT"].map((text, index) => (
-            <motion.p
-              key={index}
-              className="w-fit text-[160px] tracking-wide cursor-pointer hover:italic"
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              {text}
-            </motion.p>
-          ))}
+          <div
+            className={`w-6 h-6 bg-white rounded-full shadow-md transform duration-300 ease-in-out ${toggleCircle}`}
+          />
         </div>
 
+        </div>
+        
+      </nav>
+
+      <div style={{ fontFamily: "GrandSlang" }} className={`leading-[0.98] pt-10 pb-0 ${textColor}`}>
+        <p className='text-[160px] font-semibold'>ADEJUWON</p>
+        <p className='text-[160px] font-semibold text-right'>OSHINDORO</p>
       </div>
-    </>
+
+      <div className="overflow-hidden mt-0">
+        <div className={`marquee font-semibold font-montserrat text-[28px] flex gap-20 ${textColor}`}>
+          <span className='pr-20'>CREATIVE DEVELOPER</span>
+          <span className='pr-20'>BUSINESS DEVELOPER</span>
+          <span className='pr-20'>AI ENTHUSIAST</span>
+          <span className='pr-20'>CREATIVE DEVELOPER</span>
+          <span className='pr-20'>BUSINESS DEVELOPER</span>
+          <span className='pr-20'>AI ENTHUSIAST</span>
+        </div>
+      </div>
+
+      <div className={`text-[22px] font-montserrat w-[50%] ${textColor}`}>
+        <p>Currently working as a software engineer at Stark42 studio and business developer at tix.africa.</p>
+      </div>
+    </div>
   );
-}
+};
+
+export default Home;
